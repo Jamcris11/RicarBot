@@ -13,7 +13,7 @@ client.on('message', message => {
 	// If the message equals the config.Prefix + "uptime", then display the time the bot has been active.
 	if (message.content.toLowerCase() == (config.Prefix + "uptime"))
 	{
-		client.channels.get(message.channel.id).send('`This bot has been on for ' + (client.uptime/1000) +
+		client.channels.get(message.channel.id).send('`This bot has been on for ' + parseInt((client.uptime/1000)) +
 			" seconds, or " + parseInt((client.uptime/1000)/60) + ' minutes.`');
 	}
 
@@ -30,8 +30,7 @@ client.on('message', message => {
 	
 	if (v != -1) {
 		client.channels.get(message.channel.id).send({
-			files:
-			[v]
+			files: [v]
 		});
 	}
 });
