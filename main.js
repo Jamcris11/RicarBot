@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 var config = require('./config.js');
+var Ricardo = require('./scripts/PostRicardo.js');
 
 var fs = require('fs')
 
@@ -25,6 +26,9 @@ client.on('message', message => {
 		client.channels.get(message.channel.id).send(
 			'`'+config.Prefix+'uptime   : Displays how long the bot has been active`');
 	}
+	
+	// Else handle ricardo messages.
+	Ricardo.HandleMsg(message);
 });
 
 
