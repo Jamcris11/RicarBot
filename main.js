@@ -26,9 +26,10 @@ client.on('message', message => {
 	
 	// Else handle ricardo messages.
 	var v = Ricardo.HandleMsg(message);
+	//console.log(v);
 	
 	if (v != -1) {
-		client.channels.get(message.channel.id).send('`test`');
+		client.channels.get(message.channel.id).sendFile(v);
 	}
 });
 
