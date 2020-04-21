@@ -28,7 +28,11 @@ client.on('message', message => {
 	}
 	
 	// Else handle ricardo messages.
-	Ricardo.HandleMsg(message);
+	var v = Ricardo.HandleMsg(message);
+	
+	if (v != -1) {
+		client.channels.get(message.channel.id).send('`test`');
+	}
 });
 
 
