@@ -29,7 +29,10 @@ client.on('message', message => {
 	//console.log(v);
 	
 	if (v != -1) {
-		client.channels.get(message.channel.id).sendFile(v);
+		client.channels.get(message.channel.id).send({
+			files:
+			[v]
+		});
 	}
 });
 
