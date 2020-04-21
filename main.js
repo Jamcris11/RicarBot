@@ -4,9 +4,6 @@ const client = new Discord.Client();
 var config = require('./config.js');
 var Ricardo = require('./scripts/PostRicardo.js');
 
-var fs = require('fs')
-
-
 client.on('ready', () => {
     console.log("I am ready!");
 })
@@ -36,6 +33,6 @@ client.on('message', message => {
 });
 
 
-client.login('NzAyMTE0MDk4ODE2NzQ1NTAy.Xp7U9w.MA-unB6LztI1UKWuWbSIINCpa4k')
+client.login(config.Bot_Token)
 
 
