@@ -1,4 +1,5 @@
-var fs = require('fs')
+var fs = require('fs');
+var path = require('path');
 
 function getRandomInt(max) {
 	var i = Math.floor(Math.random() * Math.floor(max));
@@ -14,7 +15,7 @@ GetFiles = function(directory, recursive) {
 exports.FindRandomFile = function(directory, recursive) {
 	var files = GetFiles(directory, recursive);
 	
-	return directory + '/' + files[getRandomInt(files.length)];
+	return path.resolve(directory, files[getRandomInt(files.length)]);
 }
 
 
