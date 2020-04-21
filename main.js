@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-const Prefix = '$';
+var config = require('./config.js');
 
 var fs = require('fs')
 
@@ -12,18 +12,18 @@ client.on('ready', () => {
 
 client.on('message', message => {
 	
-	// If the message equals the prefix + "uptime", then display the time the bot has been active.
-	if (message.content.toLowerCase() == (Prefix + "uptime"))
+	// If the message equals the config.Prefix + "uptime", then display the time the bot has been active.
+	if (message.content.toLowerCase() == (config.Prefix + "uptime"))
 	{
 		client.channels.get(message.channel.id).send('`This bot has been on for ' + (client.uptime/1000) +
 			" seconds, or " + parseInt((client.uptime/1000)/60) + ' minutes.`');
 	}
 
 	// Displays commands for them sexy users
-	if (message.content.toLowerCase() == (Prefix+"help"))
+	if (message.content.toLowerCase() == (config.Prefix+"help"))
 	{
 		client.channels.get(message.channel.id).send(
-			'`'+Prefix+'uptime   : Displays how long the bot has been active`');
+			'`'+config.Prefix+'uptime   : Displays how long the bot has been active`');
 	}
 });
 
