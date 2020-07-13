@@ -4,7 +4,7 @@ var FS = require('./FileFinder.js');
 exports.HandleMsg = function(msg) {
 	if (msg.content.toLowerCase() == (config.Prefix + "ricardo")) {
 		console.log('Meme posted!');
-		var file = FS.FindRandomFile('C:/Users/Home/Desktop/Memes/Ricardo', true);
+		var file = FS.FindRandomFile(config.ImageDirectory, true);
 		return file;
 	}
 	else {
