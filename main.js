@@ -33,6 +33,9 @@ client.on('message', message => {
 			files: [v]
 		});
 	}
+	else {
+		console.log("Returned minus 1");
+	}
 });
 
 
