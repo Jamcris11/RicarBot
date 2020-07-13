@@ -5,8 +5,8 @@ prefix = config.Prefix
 
 commands = {}
 
-commands[`${prefix}ricardo`] = function() {
-	console.log('Meme posted!');
+commands[`${prefix}ricardo`] = function(msg) {
+	console.log(msg.channel.toString() + ': Meme posted!');
 	var file = FS.FindRandomFile(config.ImageDirectory, true);
 	return file;
 }
@@ -15,7 +15,7 @@ exports.HandleMsg = function(msg) {
 	cmd = msg.content.toLowerCase();
 	
 	if (commands[cmd] != undefined) {
-		return commands[cmd]();
+		return commands[cmd](msg);
 	}
 	else {
 		return -1;
